@@ -16,8 +16,9 @@ def add_donor(name,amount):
         
     name = name.strip()
     for donor in db:
-        # do a case-insenstive compare
+        # Compare names in current list
         if name.strip().lower() == donor[0].lower():
+            #print (donor[1])
             return None
              
         
@@ -55,7 +56,7 @@ def main_selection():
 
 def letter(name,amount):
 
-    thank_you = (f'\nDear {name},\nThank you for your very kind donation of ${int(amount):.2f}.It will be put to very good use.\nSincerely,\n-The Team')
+    thank_you = (f'\nDear {name},\nThank you for your very kind donation of ${int(amount):.2f}. It will be put to very good use.\nSincerely,\n-The Team')
     print (thank_you)
     return thank_you
 
@@ -69,21 +70,20 @@ def thank_you():
             break
         
         try:
-            amount = int(input('Enter the amount of donation: '))
+            amount = float(input('Enter the amount of donation: '))
             letter(name,amount)
             add_donor(name,amount)
             break
         
         except ValueError:
-            print('No, start over and input a donation amount.')
+            print('No, start over and input donation amount with cents.')
             #amount = int(input('Enter the amount of donation: '))
             continue
         #else:
             #break
 
 def sort(column):
-    # Took awhile t
-    # o figure out a sort key has to be a function. 
+    # Sort function
     return column[1]
 
 def donor_report():
