@@ -23,10 +23,11 @@ def add_donor(name,amount):
             #print (donor[0])
             #print (donations[0])
             donations.append(amount)
-            return
+            return donor
         
     donor = (name, [amount])
     db.append(donor)
+    return donor
 
 def main_selection():
 
