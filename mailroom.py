@@ -48,6 +48,7 @@ def main_selection():
         elif action == str('q') or action == str('Q'):
             return action.strip().upper() # Use upper() so strings are always uppercase
 
+        # If user does not enter 1,2, or Q.
         try:
             print ('Try Again')
         except  ValueError:
@@ -59,7 +60,7 @@ def main_selection():
 
 
 def letter(name,amount):
-
+    # Create the thank you letter
     thank_you = (f'\nDear {name},\nThank you for your very kind donation of ${float(amount):.2f}. It will be put to very good use.\nSincerely,\n-The Team')
     print (thank_you)
     return thank_you
@@ -100,13 +101,11 @@ def donor_report():
         avg_gift = total_gifts / num_gifts
         report_rows.append((name, total_gifts, num_gifts, avg_gift))
         
-    #print (report_rows)
-    # Sort the report data
+
     
     report_rows.sort(key=sort, reverse=True)
     
-    #print (report_rows)
-    #Format report.
+
     report = []
     report.append("\n" * 2)
     report.append("-" * 66)
@@ -125,7 +124,7 @@ def donor_report():
 
 if __name__ == '__main__':
     
-    # 
+    # Get user reqeust
     while True:
         selection = main_selection()
         if selection == '1':
